@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ForecastsPage />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ForecastsPage from "./components/ForecastsPage"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    ForecastsPage,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;600;700&display=swap');
+</style>
+
+<style lang="scss">
+body {
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom right, #CFC6FF, #AA9CF0, #DCD7F6);
+  font-family: 'Karla', sans-serif;
 }
 </style>

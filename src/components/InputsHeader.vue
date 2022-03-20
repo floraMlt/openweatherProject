@@ -1,27 +1,30 @@
 <template>
   <div class="inputs-header">
+
+    <!-- Input for minimal temperature -->
     <div class="input">
       <div class="input__infos">
         <p class="input__infos__input-title">MIN TEMP</p>
         <h3 class="input__infos__input-value">{{ inputMinTemp }}°C</h3>
       </div>
       <div class="input__container">
-        <input v-on:input="$emit('update:inputMinTemp', $event.target.value)" 
+        <input v-on:input="$emit('update:inputMinTemp', parseInt($event.target.value))" 
           :value="inputMinTemp" type="range" 
-          min="0" max="30" 
+          :min="minTemp" :max="inputMaxTemp"
           class="input__slider"/>
       </div>   
     </div>
     
+    <!-- Input for maximal temperature -->
     <div class="input">
       <div class="input__infos">
         <p class="input__infos__input-title">MAX TEMP</p>
         <h3 class="input__infos__input-value">{{ inputMaxTemp }}°C</h3>
       </div>
       <div class="input__container">
-        <input v-on:input="$emit('update:inputMaxTemp', $event.target.value)" 
+        <input v-on:input="$emit('update:inputMaxTemp', parseInt($event.target.value))" 
           :value="inputMaxTemp" type="range" 
-          min="0" max="30" 
+          :min="inputMinTemp" :max="maxTemp"
           class="input__slider"/>
       </div>
     </div>
@@ -29,6 +32,8 @@
 </template>
 
 <script>
+/** Inputs for filtering forecasts by minimum and maximum temperature */
+
 export default {
   name: "InputsHeader",
   props: {
@@ -39,13 +44,16 @@ export default {
     inputMaxTemp: {
       type: Number,
        default: 30
+    },
+    minTemp: {
+      type: Number,
+      default: 0
+    },
+    maxTemp: {
+      type: Number,
+      default: 30
     }
   }
-  // watch: {
-  //   inputMinTemp(value) {
-  //     if(value > this.inputMaxTemp)
-  //   }
-  // }
 }
 </script>
 

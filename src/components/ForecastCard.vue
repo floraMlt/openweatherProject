@@ -1,11 +1,12 @@
 <template>
   <div class="forecast-card-container">
-
+    
     <img :src="`http://openweathermap.org/img/wn/${forecastData.weather[0].icon}@2x.png`"/>
     <h3 class="forecast-card-container__date">
       {{ forecastData.date }}
     </h3>
 
+    <!-- Minimum and maximum temperatures of the day -->
     <div class="forecast-card-container__temps-details">
       <div class="forecast-card-container__temps-details__item">
         <p class="forecast-card-container__temps-details__item__title">
@@ -29,6 +30,8 @@
 </template>
 
 <script>
+/** Component displaying the forecast for a day  */
+
 export default {
   name: "ForecastCard",
   props: {
@@ -46,7 +49,6 @@ export default {
   flex-direction: row;
   align-items: center;
   padding: 8px;
-
   background-color: rgba(#fff, 0.5);
   border-radius: 20px;
 
